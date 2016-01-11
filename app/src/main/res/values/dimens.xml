@@ -1,0 +1,20 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Default padding, ... -->
+    <dimen name="padding_tiny">0.5dip</dimen>
+    <dimen name="padding_small">1.0dip</dimen>
+    <dimen name="padding_normal">2.0dip</dimen>
+    <dimen name="padding_normal_large">3.5dip</dimen>
+    <dimen name="padding_large">5.0dip</dimen>
+    <dimen name="padding_large_xlarge">7.5dip</dimen>
+    <dimen name="padding_xlarge">10.0dip</dimen>
+    <dimen name="padding_xxlarge">15.0dip</dimen>
+    <dimen name="padding_xxxlarge">20.0dip</dimen>
+
+    <!-- Camera Activity-->
+    <dimen name="activity_camera_footer_height">64dp</dimen>
+    <dimen name="activity_camera_icon_size">56dp</dimen>
+</resources>
