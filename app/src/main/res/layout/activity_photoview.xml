@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/photoview_selected_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:layout_weight="1"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_photoview_footer_height"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/photoview_share_btn"
+            android:layout_width="@dimen/activity_photoview_share_icon_size"
+            android:layout_height="@dimen/activity_photoview_share_icon_size"
+            android:layout_marginRight="@dimen/activity_photoview_share_margin_right"
+            android:background="@mipmap/ic_share"/>
+
+        <ImageView
+            android:id="@+id/photoview_delete_btn"
+            android:layout_width="@dimen/activity_photoview_share_icon_size"
+            android:layout_height="@dimen/activity_photoview_share_icon_size"
+            android:layout_marginLeft="@dimen/activity_photoview_delete_margin_left"
+            android:background="@mipmap/ic_delete"/>
+    </LinearLayout>
+
+</LinearLayout>
