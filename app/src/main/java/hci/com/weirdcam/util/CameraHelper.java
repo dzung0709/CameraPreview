@@ -1,4 +1,4 @@
-package hci.com.weirdcam;
+package hci.com.weirdcam.util;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.GINGERBREAD;

@@ -1,7 +1,7 @@
-package hci.com.weirdcam;
+package hci.com.weirdcam.util;
 
-import hci.com.weirdcam.CameraHelper.CameraHelperImpl;
-import hci.com.weirdcam.CameraHelper.CameraInfo2;
+import hci.com.weirdcam.util.CameraHelper.CameraHelperImpl;
+import hci.com.weirdcam.util.CameraHelper.CameraInfo2;
 import android.annotation.TargetApi;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;

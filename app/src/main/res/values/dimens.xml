@@ -15,6 +15,18 @@
     <dimen name="padding_xxxlarge">20.0dip</dimen>
 
     <!-- Camera Activity-->
-    <dimen name="activity_camera_footer_height">64dp</dimen>
+    <dimen name="activity_camera_footer_height">84dp</dimen>
     <dimen name="activity_camera_icon_size">56dp</dimen>
+
+    <!-- PhotoView Activity-->
+    <dimen name="activity_photoview_footer_height">64dp</dimen>
+    <dimen name="activity_photoview_share_icon_size">56dp</dimen>
+    <dimen name="activity_photoview_share_margin_right">44dp</dimen>
+    <dimen name="activity_photoview_delete_margin_left">44dp</dimen>
+
+    <!-- Filters Fragment-->
+    <dimen name="fragment_filters_height">108dp</dimen>
+    <dimen name="item_filter_photo_width">48dp</dimen>
+    <dimen name="item_filter_photo_height">64dp</dimen>
+    <dimen name="item_filter_name_text_size">12sp</dimen>
 </resources>

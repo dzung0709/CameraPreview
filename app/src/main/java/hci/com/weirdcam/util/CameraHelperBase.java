@@ -1,4 +1,4 @@
-package hci.com.weirdcam;
+package hci.com.weirdcam.util;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
