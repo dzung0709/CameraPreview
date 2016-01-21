@@ -19,7 +19,7 @@
     <dimen name="activity_camera_icon_size">56dp</dimen>
 
     <!-- PhotoView Activity-->
-    <dimen name="activity_photoview_footer_height">64dp</dimen>
+    <dimen name="activity_photoview_footer_height">88dp</dimen>
     <dimen name="activity_photoview_share_icon_size">56dp</dimen>
     <dimen name="activity_photoview_share_margin_right">44dp</dimen>
     <dimen name="activity_photoview_delete_margin_left">44dp</dimen>

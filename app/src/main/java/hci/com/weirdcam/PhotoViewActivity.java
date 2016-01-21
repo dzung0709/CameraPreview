@@ -24,10 +24,8 @@ public class PhotoViewActivity extends AppCompatActivity{
 
     private void init() {
         if (getIntent()!= null) {
-            String imageLocation = getIntent().getExtras().getString("imagePath");
-            File storePath = Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_PICTURES);
-            String filePath = storePath.getPath() + "/WeirdCamera/" + imageLocation;
+            String filePath = getIntent().getExtras().getString("imagePath");
+
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = Bitmap.Config.ARGB_8888;
             bitmap = BitmapFactory.decodeFile(filePath, options);
@@ -37,8 +35,10 @@ public class PhotoViewActivity extends AppCompatActivity{
 
     @Override
     protected void onDestroy() {
-        bitmap.recycle();
-        bitmap = null;
+        if (bitmap != null) {
+            bitmap.recycle();
+            bitmap = null;
+        }
         super.onDestroy();
     }
 }

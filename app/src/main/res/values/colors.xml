@@ -29,4 +29,7 @@
 
     <!-- Camera Activity-->
     <color name="colorWhite">#ffffff</color>
+
+    <!-- Gallery Activity-->
+    <color name="gallery_item_default_background">#dddddd</color>
 </resources>

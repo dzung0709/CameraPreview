@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import hci.com.weirdcam.fragment.FilterFragments;
 import hci.com.weirdcam.util.CameraHelper;
@@ -31,21 +30,13 @@ import jp.co.cyberagent.android.gpuimage.GPUImageBulgeDistortionFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageCGAColorspaceFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageCrosshatchFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageDilationFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImageDissolveBlendFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageEmbossFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImageFalseColorFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImageGammaFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageGlassSphereFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImageLookupFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImagePixelationFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImagePosterizeFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImageSaturationFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImageSharpenFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageSketchFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageSwirlFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageThresholdEdgeDetection;
 import jp.co.cyberagent.android.gpuimage.GPUImageToonFilter;
-import jp.co.cyberagent.android.gpuimage.GPUImageTwoPassFilter;
 import jp.co.cyberagent.android.gpuimage.GPUImageWeakPixelInclusionFilter;
 
 public class CameraActivity extends AppCompatActivity implements View.OnClickListener,
@@ -63,7 +54,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     private CardView cameraSwitchBtn;
     private CardView filterShuffleBtn;
     private ImageView cameraBtn;
-    private GLSurfaceView glSurfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +75,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void init() {
-        glSurfaceView = (GLSurfaceView) findViewById(R.id.surfaceView);
-
         cameraBtn = (ImageView) findViewById(R.id.camera_btn);
         cameraSwitchBtn = (CardView) findViewById(R.id.camera_switch_btn);
         filterShuffleBtn = (CardView) findViewById(R.id.filter_shuffle_btn);
@@ -128,7 +116,8 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 takePicture();
                 break;
             case R.id.camera_switch_btn:
-                mCamera.switchCamera();
+                Intent intent = new Intent(CameraActivity.this, GalleryActivity.class);
+                startActivity(intent);
                 break;
             case R.id.filter_shuffle_btn:
                 FilterFragments filterFragments = new FilterFragments();
@@ -155,7 +144,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 mGPUImage.setFilter(new GPUImageBulgeDistortionFilter(0.3f, 0.5f, new PointF(0.5f, 0.5f)));
                 break;
             case 3:
-                mGPUImage.setFilter(new GPUImageGlassSphereFilter(new PointF(0.5f, 0.5f), 0.4f, 0.5f));
+                mGPUImage.setFilter(new GPUImageGlassSphereFilter(new PointF(0.5f, 0.5f), 0.5f, 0.5f));
                 break;
             case 4:
                 mGPUImage.setFilter(new GPUImageEmbossFilter());
@@ -200,7 +189,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
                     @Override
                     public void onPictureTaken(byte[] data, final Camera camera) {
-
                         final File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
                         final String fileName;
                         if (pictureFile == null) {
@@ -233,9 +221,14 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                                     @Override
                                     public void onPictureSaved(final Uri
                                                                        uri) {
+                                        // Move to PhotoView
+                                        File storePath = Environment.getExternalStoragePublicDirectory(
+                                                Environment.DIRECTORY_PICTURES);
+                                        String filePath = storePath.getPath() + "/WeirdCamera/" + fileName;
                                         Intent intent = new Intent(CameraActivity.this, PhotoViewActivity.class);
-                                        intent.putExtra("imagePath", fileName);
+                                        intent.putExtra("imagePath", filePath);
                                         startActivity(intent);
+
                                         bitmap.recycle();
                                         bitmap = null;
                                         pictureFile.delete();
